@@ -1,0 +1,212 @@
+:root {
+  --bg: #020617;
+  --glass: rgba(255, 255, 255, 0.15);
+  --card: rgba(255, 255, 255, 0.18);
+  --text: #fff;
+}
+
+body.light {
+  --bg: #f1f5f9;
+  --glass: rgba(0, 0, 0, 0.08);
+  --card: rgba(0, 0, 0, 0.06);
+  --text: #020617;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: none;
+  height: 100vh;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: Poppins, sans-serif;
+  background: var(--glass);
+  color: var(--text);
+}
+
+button {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar button {
+  padding: 10px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.sidebar button.active,
+.sidebar button:hover {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  color: #fff;
+}
+
+main {
+  flex: 1;
+  padding: 30px;
+  overflow: auto;
+}
+
+.view {
+  display: none;
+}
+
+.active-view {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.controls input,
+select {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--glass);
+  color: var(--text);
+}
+
+.task-list {
+  display: grid;
+  gap: 15px;
+}
+
+.task {
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--card), transparent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: grab;
+}
+
+.task.done {
+  opacity: .6;
+  text-decoration: line-through;
+}
+
+.high {
+  border-left: 5px solid #ef4444;
+}
+
+.medium {
+  border-left: 5px solid #f59e0b;
+}
+
+.low {
+  border-left: 5px solid #22c55e;
+}
+
+.progress-container {
+  height: 10px;
+  background: var(--glass);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22d3ee, #6366f1);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  background: rgba(2, 2, 2, 0);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--glass);
+  background-color: rgba(215, 217, 233, 0.8);
+  padding: 25px;
+  border-radius: 15px;
+  width: 320px;
+}
+
+.modal-content select,
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.modal-content input,
+textarea {
+  width: 94%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.auth {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg);
+}
+
+.auth input,
+.auth button {
+  padding: 10px;
+  width: 220px;
+  border-radius: 10px;
+  border: none;
+}
+
+.kanban {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--glass);
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
