@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="authScreen" class="auth">
+    <h2>TaskFlow Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button id="loginBtn">Login</button>
+    <button id="registerBtn">Register</button>
+  </div>
+
+  <div class="app">
+
+    <aside class="sidebar">
+      <h2>TaskFlow</h2>
+      <button class="nav active" data-view="tasksView">Tasks</button>
+      <button class="nav" data-view="dashboardView">Dashboard</button>
+      <button class="nav" data-view="kanbanView">Kanban</button>
+      <button id="addBtn">+ Add Task</button>
+      <button id="logout">Logout</button>
+
+      <div class="theme-toggle">
+        🌙 Dark Mode <input type="checkbox" id="themeSwitch">
+      </div>
+    </aside>
+
+    <main>
+
+      <!-- TASKS -->
+      <section id="tasksView" class="view active-view">
+        <h1>My Tasks</h1>
+        <div class="progress-container">
+          <div id="progressBar"></div>
+        </div>
+
+        <div class="controls">
+          <input id="search" placeholder="Search tasks..." />
+          <select id="statusFilter">
+            <option value="all">All</option>
+            <option value="todo">Todo</option>
+            <option value="progress">In Progress</option>
+            <option value="done">Completed</option>
+          </select>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+        <p id="empty">✨ Add your first task</p>
+      </section>
+
+      <!-- DASHBOARD -->
+      <section id="dashboardView" class="view">
+        <h1>Dashboard</h1>
+        <div class="stats">
+          <div>Total <span id="total">0</span></div>
+          <div>Completed <span id="completed">0</span></div>
+          <div>Pending <span id="pending">0</span></div>
+        </div>
+        <canvas id="chart" width="320" height="200"></canvas>
+      </section>
+
+      <!-- KANBAN -->
+      <section id="kanbanView" class="view">
+        <h1>Kanban Board</h1>
+        <div class="kanban">
+          <div class="column" data-status="todo">
+            <h3>Todo</h3>
+            <div class="dropzone"></div>
+          </div>
+          <div class="column" data-status="progress">
+            <h3>In Progress</h3>
+            <div class="dropzone"></div>
+          </div>
+          <div class="column" data-status="done">
+            <h3>Done</h3>
+            <div class="dropzone"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <h2>Add Task</h2>
+      <form id="taskForm">
+        <input id="title" required placeholder="Task title" />
+        <textarea id="desc" placeholder="Description"></textarea>
+
+        <select id="status">
+          <option value="todo">Todo</option>
+          <option value="progress">In Progress</option>
+          <option value="done">Completed</option>
+        </select>
+
+        <select id="priority">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+
+        <input id="dueDate" type="date" />
+        <button type="submit">Add Task</button>
+        <button type="button" id="close">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
